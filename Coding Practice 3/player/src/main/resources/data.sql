@@ -1,0 +1,1 @@
+INSERT INTO(playerName, jerseyNumber, role) VALUES("Arun", 1, "All-rounder");
