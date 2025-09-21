@@ -19,21 +19,21 @@ public class TodoH2Service implements TodoRepository {
 
     @Override
     public void deleteTodo(int id) {
-        db.update("DELETE FROM todolist WHERE id = ?", id);
+        db.update("DELETE FROM TODOLIST WHERE id = ?", id);
     }
 
     @Override
     public Todo updateTodo(int id, Todo todo) {
         if (todo.getTodo() != null) {
-            db.update("UPDATE todolist SET todo = ? WHERE id = ?", todo.getTodo(), id);
+            db.update("UPDATE TODOLIST SET todo = ? WHERE id = ?", todo.getTodo(), id);
         }
 
         if (todo.getStatus() != null) {
-            db.update("UPDATE todolist SET status = ? WHERE id = ?", todo.getStatus(), id);
+            db.update("UPDATE TODOLIST SET status = ? WHERE id = ?", todo.getStatus(), id);
         }
 
         if (todo.getPriority() != null) {
-            db.update("UPDATE todolist SET priority = ? WHERE id = ?", todo.getPriority(), id);
+            db.update("UPDATE TODOLIST SET priority = ? WHERE id = ?", todo.getPriority(), id);
         }
 
         return getTodoById(id);
@@ -42,7 +42,7 @@ public class TodoH2Service implements TodoRepository {
     @Override
     public Todo getTodoById(int id) {
         try {
-            Todo uniqueTodo = db.queryForObject("SELECT * FROM todolist WHERE id = ?", new TodoRowMapper(), id);
+            Todo uniqueTodo = db.queryForObject("SELECT * FROM TODOLIST WHERE id = ?", new TodoRowMapper(), id);
             return uniqueTodo;
         } catch(Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -51,14 +51,14 @@ public class TodoH2Service implements TodoRepository {
 
     @Override
     public Todo addTodo(Todo todo) {
-        db.update("INSERT INTO todolist(todo, status, priority) VALUES(?, ?, ?)", todo.getTodo(), todo.getStatus(), todo.getPriority());
-        Todo newTodo = db.queryForObject("SELECT * FROM todolist WHERE todo = ? AND status = ? AND priority = ?", new TodoRowMapper(), todo.getTodo(), todo.getStatus(), todo.getPriority());
+        db.update("INSERT INTO TODOLIST(todo, status, priority) VALUES(?, ?, ?)", todo.getTodo(), todo.getStatus(), todo.getPriority());
+        Todo newTodo = db.queryForObject("SELECT * FROM TODOLIST WHERE todo = ? AND status = ? AND priority = ?", new TodoRowMapper(), todo.getTodo(), todo.getStatus(), todo.getPriority());
         return newTodo;
     }
 
     @Override
     public ArrayList<Todo> getTodos() {
-        List<Todo> todoLists = db.query("SELECT * FROM todolist" , new TodoRowMapper());
+        List<Todo> todoLists = db.query("SELECT * FROM TODOLIST" , new TodoRowMapper());
         ArrayList<Todo> todos = new ArrayList<>(todoLists);
         return todos;
     }
