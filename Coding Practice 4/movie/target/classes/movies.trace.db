@@ -1,0 +1,15 @@
+2025-09-21 10:54:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE_LIST" not found (this database is empty); SQL statement:
+select movie0_.movieid as movieid1_0_0_, movie0_.leadactor as leadacto2_0_0_, movie0_.moviename as movienam3_0_0_ from movie_list movie0_ where movie0_.movieid=? [42104-214]
+2025-09-21 10:55:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE_LIST" not found (this database is empty); SQL statement:
+select movie0_.movieid as movieid1_0_, movie0_.leadactor as leadacto2_0_, movie0_.moviename as movienam3_0_ from movie_list movie0_ [42104-214]
+2025-09-21 10:58:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE_LIST" not found; SQL statement:
+select movie0_.movieid as movieid1_0_, movie0_.leadactor as leadacto2_0_, movie0_.moviename as movienam3_0_ from movie_list movie0_ [42102-214]
+2025-09-21 10:59:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE_LIST" not found; SQL statement:
+select movie0_.movieid as movieid1_0_, movie0_.leadactor as leadacto2_0_, movie0_.moviename as movienam3_0_ from movie_list movie0_ [42102-214]
+2025-09-21 11:02:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIES" not found (this database is empty); SQL statement:
+select movie0_.movieid as movieid1_0_, movie0_.leadactor as leadacto2_0_, movie0_.moviename as movienam3_0_ from movies movie0_ [42104-214]
